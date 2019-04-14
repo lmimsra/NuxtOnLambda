@@ -2,6 +2,8 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
+  // source dir setting
+  srcDir: 'app/',
 
   /*
    ** Headers of the page
