@@ -2,6 +2,8 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
+  // source dir setting
+  srcDir: 'app/',
 
   /*
    ** Headers of the page
@@ -38,8 +40,20 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma'
+    '@nuxtjs/bulma',
+    // Doc:https://www.npmjs.com/package/nuxt-fontawesome
+    'nuxt-fontawesome'
   ],
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
+    ]
+  },
+
   /*
    ** Axios module configuration
    */
