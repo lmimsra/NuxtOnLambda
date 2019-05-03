@@ -54,6 +54,16 @@ module.exports = {
     ]
   },
 
+  render: {
+    /**
+     * compression を通すと2重に Gzip がかかりブラウザが表示できないので
+     * なにもしないミドルウェアを定義しておく
+     */
+    compressor: (req, res, next) => {
+      next()
+    }
+  },
+
   /*
    ** Axios module configuration
    */
