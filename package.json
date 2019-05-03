@@ -12,7 +12,10 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "test": "jest"
+    "test": "jest",
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:stage": "sls deploy --stage stage",
+    "deploy:prod": "sls deploy --stage production"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
