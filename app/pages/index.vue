@@ -11,6 +11,7 @@
             api sample for Lambda
           </h2>
           <p>色々なHTTPレスポンスを返すAPIです</p>
+          <p>APIレスポンス:{{ response }}</p>
         </div>
         <div class="section">
           <a href="https://nuxtjs.org/" target="_blank" class="button--green"
@@ -40,6 +41,23 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data: function() {
+    return {
+      response: null
+    }
+  },
+  mounted: function() {
+    this.$axios
+      .$get('/api/')
+      .then(response => {
+        this.response = response.message
+      })
+      .catch(error => {
+        this.response = 'API Error'
+        // eslint-disable-next-line no-console
+        console.log(error)
+      })
   }
 }
 </script>
