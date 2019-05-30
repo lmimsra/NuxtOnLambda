@@ -2,6 +2,10 @@ import express from 'express'
 import transResponse from './modules/responseList'
 const app = express()
 
+app.route('/').get(function(req, res) {
+  res.send({ message: 'Request OK!' })
+})
+
 app.route('/links').all(function(req, res) {
   res.send({
     message: '参照先のWikipediaリンクです',
