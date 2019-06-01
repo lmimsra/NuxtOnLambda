@@ -18,6 +18,8 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  serverMiddleware: [{ path: '/api', handler: '~~/api/index.js' }],
+
   /*
    ** Customize the progress-bar color
    */
@@ -50,6 +52,10 @@ module.exports = {
       {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: ['fab']
       }
     ]
   },
