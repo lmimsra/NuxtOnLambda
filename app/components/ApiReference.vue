@@ -37,9 +37,7 @@
                   <br />
                   <strong>リクエストサンプル</strong><br />
                   GETリクエスト：<code>{{ domainName }}api/links</code><br />
-                  <strong
-                    >レスポンスサンプル(実際にAPIリクエストしています)</strong
-                  ><br />
+                  <strong>レスポンスサンプル</strong><br />
                   <code>
                     { "message": "参照先のWikipediaリンクです", "link":
                     "https://ja.wikipedia.org/wiki/HT...}
@@ -60,8 +58,7 @@ export default {
   data: function() {
     return {
       domainName: 'http://localhost:300',
-      response: null,
-      wikiLink: null
+      response: null
     }
   },
   mounted() {

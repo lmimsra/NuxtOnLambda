@@ -23,13 +23,22 @@
             class="button--grey"
             >GitHub For Nuxt</a
           >
+          <a
+            href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89"
+            target="_blank"
+            class="button--grey"
+            >Httpステータスコードの一覧</a
+          >
         </div>
       </section>
       <section class="section">
-        <h3>APIリファレンス</h3>
+        <ApiReference />
       </section>
       <footer class="footer">
-        presented by LiMa
+        presented by
+        <a href="https://twitter.com/lmimsra_dev" target="_blank"
+          >LiMa <font-awesome-icon :icon="['fab', 'twitter-square']" />
+        </a>
       </footer>
     </div>
   </div>
@@ -37,10 +46,12 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import ApiReference from '~/components/ApiReference.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    ApiReference
   },
   data: function() {
     return {
