@@ -6,7 +6,7 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
   region: us-east-1 # Overwrite the default region used. Default is us-east-1
   deploymentBucket:
@@ -34,6 +34,7 @@ package: # Optional deployment packaging configuration
     - node_modules/**/*.md
     - node_modules/**/bin/**
   include:
+    - api/**
     - server/**
     - configs/**
     - nuxt.config.js
@@ -44,11 +45,11 @@ package: # Optional deployment packaging configuration
 
 
 functions:
-  apiSample: # A Function
+  nuxtApi: # A Function
     handler: server/handler.render # The file and module for this specific function.
     description: My function # The description of your function.
-    memorySize: 128 # memorySize for this specific function.
-    runtime: nodejs8.10 # Runtime for this specific function. Overrides the default which is set on the provider level
+    memorySize: 256 # memorySize for this specific function.
+    runtime: nodejs10.x # Runtime for this specific function. Overrides the default which is set on the provider level
     timeout: 30 # Timeout for this specific function.  Overrides the default set above.
     environment: # Function level environment variables
       NODE_ENV: production
@@ -58,6 +59,12 @@ functions:
       - http:
           path: '/'
           method: get
+          cors: true
+      - http:
+          path: '/api/{proxy+}'
+          method: any
+          cors: true
       - http:
           path: '{proxy+}'
           method: get
+          cors: true
