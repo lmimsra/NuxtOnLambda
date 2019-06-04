@@ -23,6 +23,11 @@ app.route('/list/:status').all(function(req, res) {
   })
 })
 
+// CORS対策
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+})
+
 export default {
   path: '/api/',
   handler: app
