@@ -21,6 +21,13 @@ module.exports = {
   serverMiddleware: [{ path: '/api', handler: '~~/api/index.js' }],
 
   /*
+   ** gzipをオフに
+   */
+  performance: {
+    gzip: false
+  },
+
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
