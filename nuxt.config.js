@@ -1,4 +1,5 @@
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -51,7 +52,16 @@ module.exports = {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
     // Doc:https://www.npmjs.com/package/nuxt-fontawesome
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    // Doc:https://github.com/nuxt-community/dotenv-module
+    // '@nuxtjs/dotenv'
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename:
+          process.env.NODE_ENV === 'production' ? '.env.prod' : '.env.dev'
+      }
+    ]
   ],
 
   fontawesome: {
@@ -75,6 +85,15 @@ module.exports = {
     compressor: (req, res, next) => {
       next()
     }
+  },
+
+  /*
+   ** 環境変数の定義
+   */
+  env: {
+    API_URL: process.env.API_URL,
+    HOST: process.env.HOST,
+    PORT: process.env.PORT
   },
 
   /*

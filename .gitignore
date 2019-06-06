@@ -83,5 +83,6 @@ dist
 # Service worker
 sw.*
 
-# Lock File
-package-lock.json
+# env
+.env.dev
+.env.prod
