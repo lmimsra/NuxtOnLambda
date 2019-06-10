@@ -2,6 +2,17 @@ import express from 'express'
 import transResponse from './modules/responseList'
 const app = express()
 
+// CORS対策
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  next()
+})
+
 app.route('/').get(function(req, res) {
   res.send({ message: 'Request OK!' })
 })
@@ -21,11 +32,6 @@ app.route('/list/:status').all(function(req, res) {
     status: status,
     description: 'status mean: ' + message
   })
-})
-
-// CORS対策
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
 })
 
 export default {
