@@ -11,7 +11,7 @@
             api sample for Lambda
           </h2>
           <p>色々なHTTPレスポンスを返すAPIです</p>
-          <p>APIレスポンス:{{ response }}</p>
+          <p>API疎通確認:{{ response }}</p>
         </div>
         <div class="section">
           <a href="https://nuxtjs.org/" target="_blank" class="button--green"
@@ -55,7 +55,10 @@ export default {
   },
   data: function() {
     return {
-      response: null
+      response: null,
+      envContent: process.env.NODE_ENV,
+      envApiUrl: process.env.API_URL,
+      envPort: process.env.PORT
     }
   },
   mounted: function() {

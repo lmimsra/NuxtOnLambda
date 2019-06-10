@@ -5,12 +5,12 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
-const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 3000
-
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
+
+const host = config.env.HOST || 'localhost'
+const port = config.env.PORT || 3000
 
 async function start() {
   // Init Nuxt.js
